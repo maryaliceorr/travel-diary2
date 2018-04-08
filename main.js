@@ -52,7 +52,7 @@ const destinationCardBuilder = (destinationCardArray) => {
         destinationString +=    `<img src="${destination.image}" alt="">`;
         destinationString +=    `<p>${destination.description}</p>`;
         destinationString += `  <textarea id="${destination.id}" rows="15" cols="50"></textarea>`;
-        destinationString += `  <button type="button">Submit</button>`;
+        destinationString += `  <button class="submit" type="button">Submit</button>`;
         destinationString += `</div>`;
     });
     writeToDom(destinationString, "destination-holder");
@@ -60,24 +60,29 @@ const destinationCardBuilder = (destinationCardArray) => {
 
 destinationCardBuilder(destinationCards);
 
-const diaryEntryCardBuilder = (diaryCardArray) => {
-    let diaryString = "";
-    diaryCardArray.forEach((diary) => {
-    diaryString += `<div class="diary-entry-holder">`;
-    diaryString +=     `<h2>${diary.title}</h2>`;
-    diaryString +=     `<p>${"kajkjhakjhfkhaf"}</p>`;
-    diaryString += `</div>`;
-    })
-    writeToDom(diaryString, "diary-holder")
+const diaryEntryCardBuilder = (e) => {
+    if (e.target.type === "button") {
+        const destTitle = e.target.parentNode.children[0].innerHTML;
+        const destDiary = e.target.parentNode.children[3].value;
+        diaryEntry(destTitle, destDiary);
+    }
 }
 
-diaryEntryCardBuilder(destinationCards);
+const diaryClick = () => {
+    document.getElementById("destination-holder").addEventListener("click", diaryEntryCardBuilder);
+}
 
-// const textBox = document.getElementsById(destinationCards.id);
+diaryClick();
 
-// const buttonClick = () => {
-//     buttonClick.addEventListener("click", (e) => {
-//         const textAreaInput = textBox.value();
-        
-//     }
-// )};
+const diaryEntry = (destTitle, destDiary) => {
+        let diaryString = "";
+        let diaryArray = [];
+        diaryString += `<div class="diary-entry-holder">`;
+        diaryString +=     `<h2>${destTitle}</h2>`;
+        diaryString +=     `<p>${destDiary}</p>`;
+        diaryString += `</div>`;
+        diaryArray.push(diaryString);
+
+        writeToDom(diaryArray, "diary-holder");
+}
+
