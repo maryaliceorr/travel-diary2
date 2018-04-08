@@ -35,7 +35,7 @@ const destinationCards = [
         title: "Denver, CO",
         id: 6,
         image: "images/denver.jpg",
-        description: "Denver, the capital of Colorado, is an American metropolis dating to the Old West era. Larimer Square, the city’s oldest block, features landmark 19th-century buildings. Museums include the Denver Art Museum, an ultramodern complex known for its collection of indigenous works, and the mansion of famed Titanic survivor Molly Brown. Denver is also a jumping-off point for ski resorts in the nearby Rocky Mountains."
+        description: "Denver, the capital of Colorado, is an American metropolis dating to the Old West era. Larimer Square, the city’s oldest block, features landmark 19th-century buildings. Museums include the Denver Art Museum, an ultramodern complex known for its collection of indigenous works, and the mansion of famed Titanic survivor Molly Brown."
     },
 ];
 
@@ -51,8 +51,8 @@ const destinationCardBuilder = (destinationCardArray) => {
         destinationString +=    `<h2>${destination.title}</h2>`;
         destinationString +=    `<img src="${destination.image}" alt="">`;
         destinationString +=    `<p>${destination.description}</p>`;
-        destinationString += `  <textarea id="${destination.id}" rows="15" cols="50"></textarea>`;
-        destinationString += `  <button class="submit" type="button">Submit</button>`;
+        destinationString +=    `<textarea id="${destination.id}" rows="15" cols="50"></textarea>`;
+        destinationString +=    `<button class="submit" type="button">Submit</button>`;
         destinationString += `</div>`;
     });
     writeToDom(destinationString, "destination-holder");
@@ -76,13 +76,16 @@ diaryClick();
 
 const diaryEntry = (destTitle, destDiary) => {
         let diaryString = "";
-        let diaryArray = [];
-        diaryString += `<div class="diary-entry-holder">`;
-        diaryString +=     `<h2>${destTitle}</h2>`;
+        diaryString += `<div class="diary">`;
+        diaryString +=     `<div class="diary-title">`;
+        diaryString +=         `<h2>${destTitle}</h2>`;
+        diaryString +=      `</div>`;
         diaryString +=     `<p>${destDiary}</p>`;
         diaryString += `</div>`;
-        diaryArray.push(diaryString);
 
-        writeToDom(diaryArray, "diary-holder");
+        writeToDom(diaryString, "diary-holder");
 }
 
+
+
+const diaryEntries = diaryEntry += diaryEntry;
