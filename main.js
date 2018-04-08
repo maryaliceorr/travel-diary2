@@ -64,6 +64,7 @@ const diaryEntryCardBuilder = (e) => {
     if (e.target.type === "button") {
         const destTitle = e.target.parentNode.children[0].innerHTML;
         const destDiary = e.target.parentNode.children[3].value;
+        //const destId = e.target.parentNode.children[3].id;
         diaryEntry(destTitle, destDiary);
     }
 }
@@ -75,7 +76,9 @@ const diaryClick = () => {
 diaryClick();
 
 const diaryEntry = (destTitle, destDiary) => {
+
         let diaryString = "";
+        // let diaryEntries = diaryString += diaryString;
         diaryString += `<div class="diary">`;
         diaryString +=     `<div class="diary-title">`;
         diaryString +=         `<h2>${destTitle}</h2>`;
@@ -84,6 +87,7 @@ const diaryEntry = (destTitle, destDiary) => {
         diaryString += `</div>`;
 
         writeToDom(diaryString, "diary-holder");
+        //writeToDom(diaryEntries, destId);
 }
 
 
