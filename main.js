@@ -89,5 +89,3 @@ const diaryEntry = (destTitle, destDiary) => {
 }
 
 
-
-const diaryEntries = diaryEntry += diaryEntry;
