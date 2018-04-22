@@ -5,7 +5,7 @@ This should print travel destination cards to the DOM and then allow the users t
 
 ## Screenshots
 
-https://raw.githubusercontent.com/maryaliceorr/travel-diary2/master/screenshots/screenshot%201.png
+!(https://raw.githubusercontent.com/maryaliceorr/travel-diary2/master/screenshots/screenshot%201.png)
 
 https://raw.githubusercontent.com/maryaliceorr/travel-diary2/master/screenshots/screenshot%202.png
 
